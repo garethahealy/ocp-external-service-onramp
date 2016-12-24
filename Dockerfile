@@ -6,7 +6,10 @@ LABEL Name="ocp-external-service-onramp" \
     Version="1.0.0" \
     License="Apache License, Version 2.0"
 
+USER root
+
 ADD run.sh /run.sh
+RUN chmod 775 /run.sh
 
 # Tools to configure routing rules at runtime
 RUN yum install -y iptables-services net-tools  && \
