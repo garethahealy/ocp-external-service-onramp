@@ -1,0 +1,15 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - nodejs
+    - npm
+services:
+  - docker
+install:
+  - npm install -g dockerfile_lint
+before_script:
+  - dockerfile_lint  -f Dockerfile
+script:
+  - docker build --tag garethahealy/ocp-external-service-onramp .
