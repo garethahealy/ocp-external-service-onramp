@@ -11,5 +11,6 @@ install:
   - npm install -g dockerfile_lint
 before_script:
   - dockerfile_lint  -f Dockerfile
+  - docker pull garethahealy/centos-pod-pause:1.0
 script:
   - docker build --tag garethahealy/ocp-external-service-onramp .
