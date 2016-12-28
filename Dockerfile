@@ -12,7 +12,7 @@ ADD run.sh /run.sh
 RUN chmod 775 /run.sh
 
 # Tools to configure routing rules at runtime
-RUN yum install -y iptables-services net-tools  && \
+RUN yum install -y iptables-services iproute && \
     yum clean all
 
 ENTRYPOINT ["/run.sh"]

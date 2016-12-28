@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-RAW_IP=$(ifconfig eth0 | grep 'inet' | xargs)
-ETH1_IP=$(echo $RAW_IP | cut -d' ' -f2)
+ETH1_IP=$(ip addr show eth0 | grep -Po 'inet \K[\d.]+')
 
 LISTENING_PORT="${LISTENING_PORT:-9779}"
 EXTERNAL_SERVICE_IP="${EXTERNAL_SERVICE_IP:-10.2.2.2}"
