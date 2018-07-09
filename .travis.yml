@@ -6,11 +6,11 @@ addons:
     - nodejs
     - npm
 services:
-  - docker
+- docker
 install:
-  - npm install -g dockerfile_lint
+- npm install -g dockerfile_lint
 before_script:
-  - dockerfile_lint  -f Dockerfile
-  - docker pull garethahealy/centos-pod-pause:1.0
+- dockerfile_lint -f Dockerfile
+- docker pull garethahealy/centos-pod-pause:1.0
 script:
-  - docker build --tag garethahealy/ocp-external-service-onramp .
+- docker build --tag garethahealy/ocp-external-service-onramp .
