@@ -1,12 +1,10 @@
 sudo: required
 dist: trusty
-addons:
-  apt:
-    packages:
-    - nodejs
-    - npm
 services:
 - docker
+language: node_js
+node_js:
+- "node"
 install:
 - npm install -g dockerfile_lint
 before_script:
