@@ -11,9 +11,12 @@ USER root
 ADD run.sh /run.sh
 RUN chmod 775 /run.sh
 
-# Tools to configure routing rules at runtime
-RUN yum install -y iptables-services iproute && \
-    yum clean all
+# Install packages without docs. Variable is used to cause yum to fail if missing
+RUN INSTALL_PKGS="iptables-services iproute" \
+    && yum install -y $INSTALL_PKGS --setopt tsflags=nodocs \
+    && rpm -V $INSTALL_PKGS \
+    && rm -rf /var/cache/yum \
+    && yum -y clean all
 
 ENTRYPOINT ["/run.sh"]
 
