@@ -1,9 +1,9 @@
 FROM garethahealy/centos-pod-pause:1.0
-MAINTAINER garethahealy (https://github.com/garethahealy/)
 
 LABEL Name="ocp-external-service-onramp" \
     Vendor="com.garethahealy" \
-    Version="1.0.0" \
+    Maintainer="garethahealy (https://github.com/garethahealy/)" \
+    Version="1.0.1" \
     License="Apache License, Version 2.0"
 
 USER root
